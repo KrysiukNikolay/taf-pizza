@@ -26,25 +26,25 @@ public class TerrapizzaTest {
 
     @Test
     public void testTerrapizzaAddMargarita() {
-        driver.findElement(By.xpath(TerrapizzaPage.BUTTON_CLOSE_COOKIE)).click();
-        driver.findElement(By.xpath(TerrapizzaPage.BUTTON_MENU)).click();
-        driver.findElement(By.xpath(TerrapizzaPage.BUTTON_PIZZA)).click();
-        driver.findElement(By.xpath(TerrapizzaPage.BUTTON_ADD_MARGARITA_IN_CART)).click();
-        driver.findElement(By.xpath(TerrapizzaPage.BUTTON_CART)).click();
-        String actual = driver.findElement(By.xpath(TerrapizzaPage.LABEL_MARGARITA_IN_CART)).getText();
+        driver.findElement(TerrapizzaPage.BUTTON_CLOSE_COOKIE).click();
+        driver.findElement(TerrapizzaPage.BUTTON_MENU).click();
+        driver.findElement(TerrapizzaPage.BUTTON_PIZZA).click();
+        driver.findElement(TerrapizzaPage.BUTTON_ADD_MARGARITA_IN_CART).click();
+        driver.findElement(TerrapizzaPage.BUTTON_CART).click();
+        String actual = driver.findElement(TerrapizzaPage.LABEL_MARGARITA_IN_CART).getText();
         Assertions.assertEquals("Пицца Венеция Классическая 32 см", actual);
 
     }
     @Test
     public void testTerrapizzaAddMargaritaAndDrink(){
-        driver.findElement(By.xpath(TerrapizzaPage.BUTTON_CLOSE_COOKIE)).click();
-        driver.findElement(By.xpath(TerrapizzaPage.BUTTON_MENU)).click();
-        driver.findElement(By.xpath(TerrapizzaPage.BUTTON_PIZZA)).click();
-        driver.findElement(By.xpath(TerrapizzaPage.BUTTON_ADD_MARGARITA_IN_CART)).click();
-        driver.findElement(By.xpath(TerrapizzaPage.BUTTON_BAR)).click();
-        driver.findElement(By.xpath(TerrapizzaPage.BUTTON_ADD_MIRINDA_IN_CART)).click();
-        driver.findElement(By.xpath(TerrapizzaPage.BUTTON_CART)).click();
-        List<WebElement> Cart = driver.findElements(By.xpath(TerrapizzaPage.LABEL_MARGARITA_IN_CART));
+        driver.findElement(TerrapizzaPage.BUTTON_CLOSE_COOKIE).click();
+        driver.findElement(TerrapizzaPage.BUTTON_MENU).click();
+        driver.findElement(TerrapizzaPage.BUTTON_PIZZA).click();
+        driver.findElement(TerrapizzaPage.BUTTON_ADD_MARGARITA_IN_CART).click();
+        driver.findElement(TerrapizzaPage.BUTTON_BAR).click();
+        driver.findElement(TerrapizzaPage.BUTTON_ADD_MIRINDA_IN_CART).click();
+        driver.findElement(TerrapizzaPage.BUTTON_CART).click();
+        List<WebElement> Cart = driver.findElements(TerrapizzaPage.LABEL_MARGARITA_IN_CART);
         Assertions.assertEquals("Пицца Венеция Классическая 32 см", Cart.get(0).getText());
         Assertions.assertEquals("Mirinda (Беларусь)", Cart.get(1).getText());
 
