@@ -2,14 +2,16 @@ package krysiuknikolay;
 
 
 import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.junit.jupiter.api.Assertions;
 
 import java.time.Duration;
+import java.util.List;
 
 public class TerrapizzaTest {
     WebDriver driver;
@@ -23,7 +25,7 @@ public class TerrapizzaTest {
     }
 
     @Test
-        public void testTerrapizza() {
+    public void testTerrapizzaAddMargarita() {
         driver.findElement(By.xpath(TerrapizzaPage.BUTTON_CLOSE_COOKIE)).click();
         driver.findElement(By.xpath(TerrapizzaPage.BUTTON_MENU)).click();
         driver.findElement(By.xpath(TerrapizzaPage.BUTTON_PIZZA)).click();
@@ -32,6 +34,19 @@ public class TerrapizzaTest {
         String actual = driver.findElement(By.xpath(TerrapizzaPage.LABEL_MARGARITA_IN_CART)).getText();
         Assertions.assertEquals("Пицца Венеция Классическая 32 см", actual);
 
+    }
+    @Test
+    public void testTerrapizzaAddMargaritaAndDrink(){
+        driver.findElement(By.xpath(TerrapizzaPage.BUTTON_CLOSE_COOKIE)).click();
+        driver.findElement(By.xpath(TerrapizzaPage.BUTTON_MENU)).click();
+        driver.findElement(By.xpath(TerrapizzaPage.BUTTON_PIZZA)).click();
+        driver.findElement(By.xpath(TerrapizzaPage.BUTTON_ADD_MARGARITA_IN_CART)).click();
+        driver.findElement(By.xpath(TerrapizzaPage.BUTTON_BAR)).click();
+        driver.findElement(By.xpath(TerrapizzaPage.BUTTON_ADD_MIRINDA_IN_CART)).click();
+        driver.findElement(By.xpath(TerrapizzaPage.BUTTON_CART)).click();
+        List<WebElement> Cart = driver.findElements(By.xpath(TerrapizzaPage.LABEL_MARGARITA_IN_CART));
+        Assertions.assertEquals("Пицца Венеция Классическая 32 см", Cart.get(0).getText());
+        Assertions.assertEquals("Mirinda (Беларусь)", Cart.get(1).getText());
 
     }
 
